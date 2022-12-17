@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <h2>Period Tracker</h2>
+
+    <form name="form_main">
+      <label for="start_date">Start Date:
+      <input name="start_date" id="start_date" type="date"> <br>
+      <label for="date_end">End Date:
+      <input name="date_end" id="date_end" type="date"><br>
+      <label for="fertility_period">Fertility Period:
+        <input name="fertility_period" id="fertility_period" type="number"> <br>
+      <button type="button" onclick="countDays()">Submit</button> <br>
+      <label for="days">Next period at:</label> 
+     
+      <span id="days"></span> <br>
+
+      <script>
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute * 60;
+      const day = hour * 24;
+      
+      function countDays() {
+        let date_ini = new Date(document.form_main.start_date.value);
+        let date_end = new Date(document.form_main.date_end.value);
+        let fertile_period=document.form_main.fertility_period.value;
+      
+        
+const d=new Date(date_end);
+d.setDate(d.getDate()+fertile_period);
+
+  document.getElementById("days").innerText = d;
+}
+    </script>
+
+</html>
